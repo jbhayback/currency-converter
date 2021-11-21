@@ -39,7 +39,7 @@ This project is a simple front-end to a simple back-end service of currency exch
 
 
 ## __Technical Design Document (TDD)__
- ![tdd-diagram](https://github.com/jbhayback/currency-converter/blob/main/currency_converter/converter/static/images/tdd.png)
+ ![tdd-diagram](https://github.com/jbhayback/currency-converter/blob/main/currency_converter/converter/static/images/TDD.png)
  - The flow of the application is shown in the diagram above.
  - On the client side, user shall set the currencies he/she wants to convert to other currency. Both currencies and amount should be filled. Once everything is set, the application server will be triggered to request to the API server. Two API endpoints will be called: Latest and Historical.
  - 3 Results could happen:
