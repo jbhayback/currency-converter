@@ -25,6 +25,9 @@ function calculate_rate() {
                 theRate.innerText = `Today: 1 ${base_currency} = ${rate} ${exchange_currency}`;
                 converted_amount.value = (base_amount.value * rate).toFixed(2);
             }
+            else {
+                theRate.innerText = `Today's rate is not yet available in latest API.`;
+            }
         });
 
     // Fetch yesterday's exchange rate
@@ -37,11 +40,12 @@ function calculate_rate() {
                 prev_converted_amount.value = (base_amount.value * prev_rate).toFixed(2);
             }
             else {
-                prevRate.innerText = `Yesterday's rate is not yet available in historical API`;
+                prevRate.innerText = `Yesterday's rate is not yet available in historical API.`;
             }
         });
 }
 
+// EVENT LISTENERS
 base_curr.addEventListener("change", calculate_rate);
 base_amount.addEventListener("input", calculate_rate);
 exchange_curr.addEventListener("change", calculate_rate);
