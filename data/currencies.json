@@ -1,0 +1,314 @@
+[
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PHP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "EUR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "USD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "AED"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "ARS"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "AUD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "BGN"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "BRL"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "BSD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "CAD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "CHF"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "CLP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "CNY"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "COP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "CZK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "DKK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "DOP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "EGP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "FJD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "GBP"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "GTQ"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "HKD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "HRK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "HUF"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "IDR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "ILS"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "INR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "ISK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "JPY"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "KRW"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "KZT"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "MXN"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "MYR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "NOK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "NZD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PAB"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PEN"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PKR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PLN"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "PYG"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "RON"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "RUB"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "SAR"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "SEK"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "SGD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "THB"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "TRY"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "TWD"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "UAH"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "UYU"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "VND"
+        }
+    },
+    {
+        "model": "converter.currencies",
+        "fields": {
+            "currency_name": "ZAR"
+        }
+    }
+]
