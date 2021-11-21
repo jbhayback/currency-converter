@@ -7,180 +7,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Currency Converter</title>
 </head>
 
 <body style="overflow:hidden">
-    <div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-        <div class="container">
-            <a href="../" class="navbar-brand">Currency Converter App<span style="color: rgb(39, 117, 161);"> </span> </a>
-        </div>
-    </div>
-
-    <br><br><br>
     <div id="jumbotron" class="jumbotron" style="text-align: center; margin-top:-50px">
-        <!-- <h1 id="devise" class="display-5">Devise </h1> -->
-        <h5>Exchange Rate Converter</h5>
-        <!-- <img src="{% static 'images/image1.jpg' %}"" class="image" style="width:100px; margin-bottom:-50px; "> -->
+        <h5>Exchange Rate Calculator</h5>
+        <img src="{% static 'images/image.jpg' %}" class="image" style="width:100px; margin-bottom:-50px; ">
     </div>
     <div class="container">
-        <div class="page-header" id="banner">
-            <div class="row">
-                <div class="col-sm-15">
-                    <h1 style="align-content: center;"> </h1>
-                    <p class="lead" style="margin-left:280px; font-size:2rem">
-                    </p>
-                </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label><b>Amount</b></label>
+            </div>
+            <div class="col-md-3">
+                <label><b>From</b></label>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label><b>To</b></label>
             </div>
         </div>
-
-        <div class="container">
-            <div class="currency">
+        <div class="row">
+            <div class="col-md-3">
+                <input class="form-control" type="number" id="base-amount" value="1" style="width:100%" />
+            </div>
+            <div class="col-sm-3">
                 <select class="form-control" id="base-currency">
-                    <option value="PHP"selected>PHP</option>
-                    <option value="EUR">EUR</option>
-                    <option value="USD">USD</option>
-                    <option value="AED">AED</option>
-                    <option value="ARS">ARS</option>
-                    <option value="AUD">AUD</option>
-                    <option value="BGN">BGN</option>
-                    <option value="BRL">BRL</option>
-                    <option value="BSD">BSD</option>
-                    <option value="CAD">CAD</option>
-                    <option value="CHF">CHF</option>
-                    <option value="CLP">CLP</option>
-                    <option value="CNY">CNY</option>
-                    <option value="COP">COP</option>
-                    <option value="CZK">CZK</option>
-                    <option value="DKK">DKK</option>
-                    <option value="DOP">DOP</option>
-                    <option value="EGP">EGP</option>
-                    <option value="FJD">FJD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="GTQ">GTQ</option>
-                    <option value="HKD">HKD</option>
-                    <option value="HRK">HRK</option>
-                    <option value="HUF">HUF</option>
-                    <option value="IDR">IDR</option>
-                    <option value="ILS">ILS</option>
-                    <option value="INR">INR</option>
-                    <option value="ISK">ISK</option>
-                    <option value="JPY">JPY</option>
-                    <option value="KRW">KRW</option>
-                    <option value="KZT">KZT</option>
-                    <option value="MXN">MXN</option>
-                    <option value="MYR">MYR</option>
-                    <option value="NOK">NOK</option>
-                    <option value="NZD">NZD</option>
-                    <option value="PAB">PAB</option>
-                    <option value="PEN">PEN</option>
-                    <option value="PKR">PKR</option>
-                    <option value="PLN">PLN</option>
-                    <option value="PYG">PYG</option>
-                    <option value="RON">RON</option>
-                    <option value="RUB">RUB</option>
-                    <option value="SAR">SAR</option>
-                    <option value="SEK">SEK</option>
-                    <option value="SGD">SGD</option>
-                    <option value="THB">THB</option>
-                    <option value="TRY">TRY</option>
-                    <option value="TWD">TWD</option>
-                    <option value="UAH">UAH</option>
-                    <option value="UYU">UYU</option>
-                    <option value="VND">VND</option>
-                    <option value="ZAR">ZAR</option>
+                    {% for currency in currencies %}
+                    <option value={{ currency }}>{{ currency }}</option>
+                    {% endfor %}
                 </select>
-                <br>
-                <input type="number" id="base-amount" value="1" style="width:100%" />
             </div>
-        </div>
-        <br>
-        <div class="swap-btn">
-            <button type="button" id="swap" class="btn btn-outline-primary mx-auto d-block">Swap Currency <i
-                    class="fa fa-refresh" aria-hidden="true"></i></button>
-        </div>
-        <!-- Dynamic rate inserted in DOM based on exchange rate fetched from API -->
-        <div class="rate" id="rate"></div>
-        <div class="rate" id="prev-rate"></div>
-        <br>
-        <div class="container">
-            <div class="currency">
+            <div class="col-md-1">
+                <button type="button" id="swap" class="btn btn-outline-primary mx-auto d-block">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="col-md-3">
                 <select class="form-control" id="exchange-currency">
-                    <option value="PHP">PHP</option>
-                    <option value="EUR" selected>EUR</option>
-                    <option value="USD">USD</option>
-                    <option value="AED">AED</option>
-                    <option value="ARS">ARS</option>
-                    <option value="AUD">AUD</option>
-                    <option value="BGN">BGN</option>
-                    <option value="BRL">BRL</option>
-                    <option value="BSD">BSD</option>
-                    <option value="CAD">CAD</option>
-                    <option value="CHF">CHF</option>
-                    <option value="CLP">CLP</option>
-                    <option value="CNY">CNY</option>
-                    <option value="COP">COP</option>
-                    <option value="CZK">CZK</option>
-                    <option value="DKK">DKK</option>
-                    <option value="DOP">DOP</option>
-                    <option value="EGP">EGP</option>
-                    <option value="FJD">FJD</option>
-                    <option value="GBP">GBP</option>
-                    <option value="GTQ">GTQ</option>
-                    <option value="HKD">HKD</option>
-                    <option value="HRK">HRK</option>
-                    <option value="HUF">HUF</option>
-                    <option value="IDR">IDR</option>
-                    <option value="ILS">ILS</option>
-                    <option value="INR">INR</option>
-                    <option value="ISK">ISK</option>
-                    <option value="JPY">JPY</option>
-                    <option value="KRW">KRW</option>
-                    <option value="KZT">KZT</option>
-                    <option value="MXN">MXN</option>
-                    <option value="MYR">MYR</option>
-                    <option value="NOK">NOK</option>
-                    <option value="NZD">NZD</option>
-                    <option value="PAB">PAB</option>
-                    <option value="PEN">PEN</option>
-                    <option value="PKR">PKR</option>
-                    <option value="PLN">PLN</option>
-                    <option value="PYG">PYG</option>
-                    <option value="RON">RON</option>
-                    <option value="RUB">RUB</option>
-                    <option value="SAR">SAR</option>
-                    <option value="SEK">SEK</option>
-                    <option value="SGD">SGD</option>
-                    <option value="THB">THB</option>
-                    <option value="TRY">TRY</option>
-                    <option value="TWD">TWD</option>
-                    <option value="UAH">UAH</option>
-                    <option value="UYU">UYU</option>
-                    <option value="VND">VND</option>
-                    <option value="ZAR">ZAR</option>
+                    {% for currency in currencies %}
+                    <option value={{ currency }}>{{ currency }}</option>
+                    {% endfor %}
                 </select>
-                <br>
-                <input type="number" id="converted-amount" placeholder="0" value="1" style="width:100%" />
-                <input type="number" id="prev-converted-amount" placeholder="0" value="1" style="width:100%" />
             </div>
         </div>
-        <br><br><br>
-        <!-- <footer id="footer">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Code released under the <a
-                            href="https://github.com/thomaspark/bootswatch/blob/master/LICENSE">MIT License</a>.</p>
-                    <p>Based on <a href="https://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a
-                            href="https://fontawesome.com/" rel="nofollow">Font Awesome</a>. Web fonts from <a
-                            href="https://fonts.google.com/" rel="nofollow">Google</a>.</p>
-
-                </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label id="rate" class="pull-right"></label>
             </div>
-
-        </footer> -->
-
-        <script src="{% static 'js/script.js' %}"></script>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="converted-amount" placeholder="0" disabled
+                    style="width:100%" />
+            </div>
+        </div>
+        <div class="row" style="padding-top: 5px;">
+            <div class="col-md-3"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label id="prev-rate" class="pull-right"></label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="prev-converted-amount" placeholder="0" disabled
+                    style="width:100%" />
+            </div>
+        </div>
+    </div>
 </body>
+<script src="{% static 'js/script.js' %}"></script>
+
 </html>

@@ -10,33 +10,35 @@ const prevRate = document.getElementById("prev-rate");
 function calculate_rate() {
     const base_currency = base_curr.value;
     const exchange_currency = exchange_curr.value;
-
     const yesterday = new Date()
     yesterday.setDate(yesterday.getDate() - 1)
     const dd = yesterday.getDate();
     const mm = yesterday.getMonth() + 1;
     const yyyy = yesterday.getFullYear();
 
-    // FETCH CURRENT EXCHANGE RATE
-    fetch(
-        `https://api.exchangerate.host/latest?base=${base_currency}`
-    )
+    // Fetch current exchange rate
+    fetch(`https://api.exchangerate.host/latest?base=${base_currency}`)
         .then((res) => res.json())
         .then((data) => {
-            const rate = data.rates[exchange_currency];
-            theRate.innerText = `TODAY: 1 ${base_currency} = ${rate} ${exchange_currency}`;
-            converted_amount.value = (base_amount.value * rate).toFixed(2);
+            if (data.success){
+                const rate = data.rates[exchange_currency];
+                theRate.innerText = `Today: 1 ${base_currency} = ${rate} ${exchange_currency}`;
+                converted_amount.value = (base_amount.value * rate).toFixed(2);
+            }
         });
-    
-    // FETCH YESTERDAY'S EXCHANGE RATE
-    fetch(
-        `https://api.exchangerate.host/${yyyy}-${mm}-${dd}?base=${base_currency}`
-    )
+
+    // Fetch yesterday's exchange rate
+    fetch(`https://api.exchangerate.host/${yyyy}-${mm}-${dd}?base=${base_currency}`)
         .then((res) => res.json())
         .then((data) => {
-            const rate = data.rates[exchange_currency];
-            prevRate.innerText = `YESTERDAY: 1 ${base_currency} = ${rate} ${exchange_currency}`;
-            prev_converted_amount.value = (base_amount.value * rate).toFixed(2);
+            if (data.success == 'true'){
+                const prev_rate = data.rates[exchange_currency];
+                prevRate.innerText = `Yesterday: 1 ${base_currency} = ${prev_rate} ${exchange_currency}`;
+                prev_converted_amount.value = (base_amount.value * prev_rate).toFixed(2);
+            }
+            else {
+                prevRate.innerText = `Yesterday's rate is not yet available in historical API`;
+            }
         });
 }
 
