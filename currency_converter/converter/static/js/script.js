@@ -34,7 +34,7 @@ function calculate_rate() {
     fetch(`https://api.exchangerate.host/${yyyy}-${mm}-${dd}?base=${base_currency}`)
         .then((res) => res.json())
         .then((data) => {
-            if (data.success == 'true'){
+            if (data.success){
                 const prev_rate = data.rates[exchange_currency];
                 prevRate.innerText = `Yesterday: 1 ${base_currency} = ${prev_rate} ${exchange_currency}`;
                 prev_converted_amount.value = (base_amount.value * prev_rate).toFixed(2);
